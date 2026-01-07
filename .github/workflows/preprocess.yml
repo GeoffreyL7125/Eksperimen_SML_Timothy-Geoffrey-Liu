@@ -26,7 +26,7 @@ jobs:
 
       - name: Run automate_Timothy-Geoffrey-Liu.py script
         run: |
-          python automate_Timothy-Geoffrey-Liu.py
+          python preprocessing/automate_Timothy-Geoffrey-Liu.py
 
       - name: Commit processed dataset
         run: |
