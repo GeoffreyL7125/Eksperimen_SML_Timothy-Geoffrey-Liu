@@ -1,0 +1,37 @@
+name: Automated Preprocessing Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  preprocessing:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with: 
+          python-version: "3.12.7"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run automate_Timothy-Geoffrey-Liu.py script
+        run: |
+          python automate_Timothy-Geoffrey-Liu.py
+
+      - name: Commit processed dataset
+        run: |
+          git config user.name "GeoffreyL7125"
+          git config user.email "timogovy3g@gmail.com"
+          git add preprocessing/student_performance_prediction_preprocessing.csv
+          git commit -m "Update preprocessed dataset (automated)" || echo "No changes to commit"
+          git push
