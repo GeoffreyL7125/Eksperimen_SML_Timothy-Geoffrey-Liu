@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 
-RAW_DATA_PATH = '../student_performance_prediction_raw.csv'
+RAW_DATA_PATH = 'Eksperimen_SML_Timothy-Geoffrey-Liu/student_performance_prediction_raw.csv'
 PREPROCESSED_DATA_PATH = 'student_performance_prediction_preprocessing.csv'
 NUMERIC_COLUMNS = ['Study Hours per Week', 'Attendance Rate', 'Previous Grades']
 
